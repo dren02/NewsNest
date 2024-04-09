@@ -75,46 +75,11 @@ h1 {
   filter: grayscale(20%);
 }
 
-button {
-  display: inline-block;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #212124;
-  color: rgb(250, 250, 250);
-  text-align: center;
-  text-decoration: none;
-  font-size: 12px;
-  cursor: pointer;
-  font-size: 15px;
-}
-
-button:hover {
-  background-color: #955cff;
-  color: white;
-}
 
 #todo-list {
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
-}
-
-input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 20px;
-  height: 20px;
-  color: rgb(242, 242, 242);
-  border: 1px solid #ccc;
-  background-color: #212124;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-input[type="checkbox"]:checked {
-  background-color: #955cff;
 }
 
 p {
