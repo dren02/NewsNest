@@ -1,19 +1,5 @@
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-  border: none;
-}
 
-body {
-  text-align: center;
-  background-color: #373737;
-  color: rgb(242, 242, 242);
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-main {
+#root {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,31 +62,11 @@ h1 {
 }
 
 
-#todo-list {
-  display: flex;
-  flex-direction: column;
-  margin-top: 2rem;
-}
-
 p {
   font-size: 20px;
   margin-left: 1rem;
 }
 
-#todo-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 1rem;
-}
-
-#todo-row {
-  border-bottom: 1px solid #212121;
-}
-
-#todo-row:last-child {
-  border-bottom: none;
-}
 
 @media only screen and (max-width: 730px) {
   #newTodoForm {

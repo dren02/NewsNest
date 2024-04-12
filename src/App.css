@@ -32,12 +32,6 @@ h1 {
   font-family:'Courier New', Courier, monospace;
 }
 
-#create,
-#todo-list {
-  width: 100%;
-  max-width: 40rem;
-}
-
 #newTodoForm {
   display: flex;
   text-align: center;
@@ -94,11 +88,6 @@ button:hover {
   color: white;
 }
 
-#todo-list {
-  display: flex;
-  flex-direction: column;
-  margin-top: 2rem;
-}
 
 input[type="checkbox"] {
   appearance: none;
@@ -120,21 +109,6 @@ input[type="checkbox"]:checked {
 p {
   font-size: 20px;
   margin-left: 1rem;
-}
-
-#todo-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 1rem;
-}
-
-#todo-row {
-  border-bottom: 1px solid #212121;
-}
-
-#todo-row:last-child {
-  border-bottom: none;
 }
 
 @media only screen and (max-width: 730px) {

@@ -1,19 +1,31 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import wustlLogo from './assets/wustl.svg'
+import React, { useState } from 'react';
 import './Todo.css'
 
-function Todo() {
+function Todo({ id, text, completed, onComplete, onDelete }) {
+    const [isChecked, setIsChecked] = useState(completed);
+
+    const handleComplete = () => {
+        setIsChecked(!isChecked);
+        onComplete();
+    };
+
+    const handleDelete = () => {
+        onDelete();
+    }
     return (
         <div id="todo-row">
-            <div data-todo-id="aedbeb80-f3fa-11ee-9e3a-a3aad18319e1">
-                <input type="checkbox" /> <p>nap</p>
+            <div id={id}>
+                <input type="checkbox" checked={isChecked} onChange={handleComplete}/>
+                <p>{text}</p>
             </div>
-            <div data-todo-id="aedbeb80-f3fa-11ee-9e3a-a3aad18319e1">
-                <button>Delete</button>
+            <div id={id}>
+                <button onClick={handleDelete}>Delete</button>
             </div>
         </div>
-    );            
-}      
-  
+    );
+}
+
 export default Todo;
