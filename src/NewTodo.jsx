@@ -1,18 +1,32 @@
-import React from 'react';
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import wustlLogo from './assets/wustl.svg'
-import './NewTodo.css'
+import React, { useState } from 'react';
 
-function NewTodo() {
-    return (
-        <div id="create">
-            <form id="newTodoForm">
-                <input id="new-todo" type="text" placeholder="Add something to do..." />
-                <input id="submit-todo" type="submit" value="+" />
-            </form>
-        </div> 
-    );             
-}       
-  
+function NewTodo({ onCreate }) {
+  const [newTodo, setNewTodo] = useState('');
+
+  const handleCreate = (event) => {
+    event.preventDefault();
+    onCreate(newTodo);
+    setNewTodo(''); // Clear the input field after submission
+  };
+
+  const handleChange = (event) => {
+    setNewTodo(event.target.value);
+  };
+
+  return (
+    <div id="create">
+      <form id="newTodoForm" onSubmit={handleCreate}>
+        <input
+          id="new-todo"
+          type="text"
+          placeholder="Add something to do..."
+          value={newTodo}
+          onChange={handleChange}
+        />
+        <input id="submit-todo" type="submit" value="+" />
+      </form>
+    </div>
+  );
+}
+
 export default NewTodo;

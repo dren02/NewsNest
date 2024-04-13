@@ -3,6 +3,9 @@ import axios from 'axios';
 import './App.css';
 import Todo from './Todo';
 import NewTodo from './NewTodo';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 const apiKey = "6b7f7f-b4ca40-c2d3c4-b0a667-94d8d8";
 const apiUrl = "https://cse204.work/todos";
@@ -41,13 +44,38 @@ function App() {
     setTodos(response.data);
   }
 
+  async function createTodo(newTodo) {
+    let todoData = {
+      text: newTodo
+    };
+    await axios.post(apiUrl, todoData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    );
+    const response = await axios.get(apiUrl);
+    setTodos(response.data);
+  }
+
   return (
     <main>
       <header>
         <h1>My ToDo List</h1>
       </header>
+      <div class="sort">
+        <button class="sortButton">Dropdown</button>
+        <div class="sortInfo">
+          <a href="#">Sort A to Z</a>
+          <a href="#">Sort Z to A</a>
+          <a href="#">Last created</a>
+          <a href="#">Recently created</a>
+          <a href="#">Completed</a>
+          <a href="#">Not Completed</a>
+        </div>
+      </div>
       <div id="create">
-        <NewTodo />
+        <NewTodo onCreate={createTodo} />
       </div>
       <div id="todo-list">
         {todos.map(todo => (
