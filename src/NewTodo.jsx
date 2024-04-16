@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './NewTodo.css'
 
 function NewTodo({ onCreate }) {
   const [newTodo, setNewTodo] = useState('');

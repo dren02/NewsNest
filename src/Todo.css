@@ -123,6 +123,10 @@ p {
   border-bottom: none;
 }
 
+input[type="checkbox"]:checked + p {
+  text-decoration: line-through;
+}
+
 @media only screen and (max-width: 730px) {
   #newTodoForm {
     padding-left: 3rem;
