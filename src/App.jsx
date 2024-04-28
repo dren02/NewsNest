@@ -63,7 +63,7 @@ function App() {
   return (
     <main>
       <header>
-        <h1>My ToDo List</h1>
+        <h1>Final Project</h1>
       </header>
       <div id="create">
         <NewTodo onCreate={createTodo} />
