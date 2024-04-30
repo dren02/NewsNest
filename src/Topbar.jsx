@@ -10,7 +10,7 @@ function Topbar() {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            Signed in as: <a href="#login">Mark Otto</a>
+            Genre: <a href="#login">Inert Genre</a>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>
