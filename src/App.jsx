@@ -1,88 +1,43 @@
+
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './App.css';
-import Todo from './Todo';
-import NewTodo from './NewTodo';
-import Sort from './Sort';
-
-const apiKey = "6b7f7f-b4ca40-c2d3c4-b0a667-94d8d8";
-const apiUrl = "https://cse204.work/todos";
-
-axios.defaults.headers.common['x-api-key'] = apiKey;
+import Button from 'react-bootstrap/Button';
+import Topbar from './Topbar';
+import Sidebar from './Sidebar';
+// import Category from './Category';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [category, setCategory] = useState(null)
+  const [news, setNews] = useState([]);
 
-  useEffect(() => {
-    axios.get(apiUrl)
-      .then(response => {
-        setTodos(response.data);
-      })
-      .catch(error => console.error('Error fetching todos:', error));
-  }, []);
-
-  async function completeTodo(todoId, isChecked) {
-    try {
-      const updatedStatus = !isChecked;
-      let todo = {
-        completed: updatedStatus
-      }
-      await axios.put(`${apiUrl}/${todoId}`, todo);
-      const response = await axios.get(apiUrl);
-      setTodos(response.data);
-
-    } catch (error) {
-      console.error('Error completing todo:', error);
-    }
+  function selectCategory(category) {
+    setCategory(category);
   }
-
-  async function deleteTodo(todoId) {
-    await axios.delete(apiUrl + '/' + todoId);
-    const response = await axios.get(apiUrl);
-    setTodos(response.data);
-  }
-
-  async function createTodo(newTodo) {
-    let todoData = {
-      text: newTodo
-    };
-    await axios.post(apiUrl, todoData, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-    );
-    const response = await axios.get(apiUrl);
-    setTodos(response.data);
-  }
-
-  async function handleSort(sortedTodos) {
-    setTodos(sortedTodos);
-  };
 
   return (
-    <main>
+    <div>
       <header>
-        <h1>Final Project</h1>
+        <Topbar />
       </header>
-      <div id="create">
-        <NewTodo onCreate={createTodo} />
-        <Sort myTodos={todos} onSort={handleSort} />
-      </div>
-      <div id="todo-list">
-        {todos.map(todo => (
-          <Todo
-            key={todo.id}
-            id={todo.id}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => completeTodo(todo.id, todo.completed)}
-            onDelete={() => deleteTodo(todo.id)}
-          />
-        ))}
-      </div>
-    </main>
+      <Container>
+        <Row>
+          <Col sm={4}>
+            {/* <Sidebar onGenre={() => displayNews(news.id)} /> */}
+            <Sidebar/>
+          </Col>
+          <Col sm={8}>sm=8</Col>
+        </Row>
+      </Container>
+
+      <section id="stories">
+        {/* map array variable */}
+      </section>
+    </div>
   );
 }
+
 
 export default App;
