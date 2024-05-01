@@ -11,15 +11,43 @@ import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
-// const apiKey = 'b5227b6eb510482daaec078114815ced';
-const apiUrl = 'https://newsapi.org/v2/everything?q=bitcoin&apiKey=b5227b6eb510482daaec078114815ced';
+const apiKey = 'b5227b6eb510482daaec078114815ced';
+const apiUrl =  'https://newsapi.org/v2/top-headlines?country=us&';
+
+// 'https://newsapi.org/v2/top-headlines?country=us&category=${pickGenre}&apiKey=b5227b6eb510482daaec078114815ced';
 
 function App() {
-  const [category, setCategory] = useState(null)
+  const [genre, setGenre] = useState(null)
   const [news, setNews] = useState([]);
+ 
+  async function fetchNews() {
+    let url = apiUrl;
+    let check = false;
+    if (genre) {
+      url += `category=${genre}&`;
+      check = true;
+    }
+    console.log("genre is: " + genre);
+    url = url + 'apiKey=' + apiKey;
+    try {
+      if (check==false) {
+        url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=b5227b6eb510482daaec078114815ced';
+      }
+      console.log("url is: " + url);
+      const response = await axios.get(url);
+      setNews(response.data.articles);
+    } catch (error) {
+      console.error('Error fetching news:', error);
+    }
+  }
+  
+  useEffect(() => {
+    fetchNews();
+  }, [genre]); // Trigger fetchNews whenever category changes
 
-  function selectCategory(category) {
-    setCategory(category);
+
+  function pickGenre(genre) {
+    setGenre(genre);
   }
 
   useEffect(() => {
@@ -31,21 +59,15 @@ function App() {
       .catch(error => console.error('Error fetching todos:', error));
   }, []);
 
-  // async function displayNews(newsId) {
-  //   await axios.delete(apiUrl + '/' + todoId);
-  //   const response = await axios.get(apiUrl);
-  //   setTodos(response.data);
-  // }
-
   return (
     <div>
       <header>
-        <Topbar />
+        <Topbar pickGenre={genre}/>
       </header>
       <Container>
         <Row>
           <Col xs={6} md={3}>
-            <Sidebar />
+            <Sidebar pickGenre={pickGenre} />
           </Col>
           <Col>
             <Row>

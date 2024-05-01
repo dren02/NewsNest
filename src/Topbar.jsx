@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import React, { useState } from 'react';
 
-function Topbar() {
+function Topbar({pickGenre}) {
   return (
     <Navbar className="bg-body-tertiary">
       <Container>
@@ -10,7 +10,7 @@ function Topbar() {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            Genre: <a href="#login">Inert Genre</a>
+            Categeory: {pickGenre ? <a href="#">{pickGenre}</a> : 'general'}
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

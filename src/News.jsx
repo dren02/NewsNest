@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+import './News.css';
 
 function News({ title, name, description, url, time, image }) {
     // function handleGenre(event) {
@@ -11,6 +11,9 @@ function News({ title, name, description, url, time, image }) {
     // }
 
     function checkLength(text, maxLength) {
+        if (!text) {
+            return ''; 
+        }
         if (text.length > maxLength) {
             return text.slice(0, maxLength) + '...';
         } else {
@@ -19,21 +22,22 @@ function News({ title, name, description, url, time, image }) {
     }
 
 return (
-    <Card style={{ width: '100%' }}>
+    <a href={url} tyle={{ textDecoration: 'none', color: 'inherit' }}>
+    <Card>
         {image && <Card.Img variant="top"
             src={image}
             style={{ height: '200px', objectFit: 'cover' }}
             className="news-image" />}
-        <Card.Body>
+        <Card.Body >
             <Card.Title>{title}</Card.Title>
-            <p>{name}</p>
+            <p><i>{name}</i></p>
             <Card.Text>
                 {checkLength(description, 150)}
                 <p>{time}</p>
             </Card.Text>
-            <p><a href={url}>Go</a></p>
         </Card.Body>
     </Card>
+    </a>
 )
 }
 
