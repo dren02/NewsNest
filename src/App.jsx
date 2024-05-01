@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Topbar from './Topbar';
+import Welcome from './Welcome';
 import Sidebar from './Sidebar';
 import News from './News';
 import Sort from './Sort';
@@ -91,6 +92,7 @@ function App() {
       <header>
         <Topbar pickGenre={genre}/>
       </header>
+      <Welcome/>
       <Sort onSort={handleSort}/>
       <Container>
         <Row>
