@@ -9,6 +9,9 @@ function News({ title, name, description, url, time, image }) {
     //     onGenre();
     //     console.log("Link clicked!");
     // }
+    // React.useEffect(() => {
+    //     checkRemoved();
+    //   }, []);
 
     function checkLength(text, maxLength) {
         if (!text) {
@@ -22,12 +25,20 @@ function News({ title, name, description, url, time, image }) {
     }
 
 return (
+    // make entire card clickable
     <a href={url} tyle={{ textDecoration: 'none', color: 'inherit' }}>
     <Card>
-        {image && <Card.Img variant="top"
+        {image ? 
+        (<Card.Img variant="top"
             src={image}
             style={{ height: '200px', objectFit: 'cover' }}
-            className="news-image" />}
+            className="news-image"/> 
+            ) : (
+            <Card.Img variant="top"
+            src="https://www.goabadminton.com/sites/default/files/default_images/default-news.jpg"
+            style={{ height: '200px', objectFit: 'cover' }}
+            className="default-image"/> 
+            )}
         <Card.Body >
             <Card.Title>{title}</Card.Title>
             <p><i>{name}</i></p>
