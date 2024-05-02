@@ -4,15 +4,6 @@ import Card from 'react-bootstrap/Card';
 import './News.css';
 
 function News({ title, name, description, url, time, image }) {
-    // function handleGenre(event) {
-    //     event.preventDefault();
-    //     onGenre();
-    //     console.log("Link clicked!");
-    // }
-    // React.useEffect(() => {
-    //     checkRemoved();
-    //   }, []);
-
     function checkLength(text, maxLength) {
         if (!text) {
             return ''; 
@@ -27,6 +18,7 @@ function News({ title, name, description, url, time, image }) {
 return (
     // make entire card clickable
     <a href={url} tyle={{ textDecoration: 'none', color: 'inherit' }}>
+        <div className="sameHeight">
     <Card>
         {image ? 
         (<Card.Img variant="top"
@@ -43,11 +35,12 @@ return (
             <Card.Title>{title}</Card.Title>
             <p><i>{name}</i></p>
             <Card.Text>
-                {checkLength(description, 150)}
+                {checkLength(description, 250)}
                 <p>{time}</p>
             </Card.Text>
         </Card.Body>
     </Card>
+    </div>
     </a>
 )
 }

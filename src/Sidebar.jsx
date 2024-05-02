@@ -2,6 +2,8 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import './Sidebar.css';
+
 
 function Sidebar({pickGenre}) {
     // function handleGenre(event) {
@@ -19,6 +21,8 @@ function Sidebar({pickGenre}) {
             <p onClick={() => pickGenre('science')}>Science</p><br/>
             <p onClick={() => pickGenre('business')}>Sports</p><br/>
             <p onClick={() => pickGenre('technology')}>Technology</p>
+            <p onClick={() => pickGenre('technology')}>Bookmark</p>
+
         </div>
     )
 }

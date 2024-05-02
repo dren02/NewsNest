@@ -10,12 +10,11 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import './App.css';
 import axios from 'axios';
 
 const apiKey = 'b5227b6eb510482daaec078114815ced';
 const apiUrl =  'https://newsapi.org/v2/top-headlines?country=us&';
-
 // 'https://newsapi.org/v2/top-headlines?country=us&category=${pickGenre}&apiKey=b5227b6eb510482daaec078114815ced';
 
 function App() {
@@ -76,33 +75,25 @@ function App() {
 
   }
 
-
-  // useEffect(() => {
-  //   axios.get(apiUrl)
-  //     .then(response => {
-  //       setNews(response.data.articles);
-  //       console.log(response.data.articles);
-  //     })
-  //     .catch(error => console.error('Error fetching todos:', error));
-  // }, []);
-
-
   return (
     <div>
       <header>
         <Topbar pickGenre={genre}/>
+        <Sidebar pickGenre={pickGenre} />
       </header>
       <Welcome/>
+      <section id="main-content">
       <Sort onSort={handleSort}/>
       <Container>
         <Row>
-          <Col xs={6} md={3}>
+          {/* <Col xs={6} md={3}>
             <Sidebar pickGenre={pickGenre} />
-          </Col>
+          </Col> */}
           <Col>
-            <Row>
+            <Row className = "news-row">
               {news.map((article, index) => (
-                <Col key={index} xs={12} sm={6} md={4}>
+                // <div className="same-height">
+                <Col className="news-box" key={index} xs={12} sm={6} md={4}>
                   <News
                     title={article.title}
                     name={article.source.name}
@@ -112,14 +103,12 @@ function App() {
                     image={article.urlToImage}
                   />
                 </Col>
+                // </div>
               ))}
             </Row>
           </Col>
         </Row>
       </Container>
-
-      <section id="stories">
-        {/* map array variable */}
       </section>
     </div>
   );

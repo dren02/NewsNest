@@ -9,3 +9,25 @@
   margin: 0;
   padding: 0;
 }
+
+#main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* #news-row {
+  display: flex;
+  flex-direction: row !important;
+  
+
+}
+.same-height {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.news-box {
+  display: flex;
+  height: 100%;
+} */

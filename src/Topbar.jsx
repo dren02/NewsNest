@@ -10,7 +10,7 @@ function Topbar({pickGenre}) {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            Categeory: {pickGenre ? <a href="#">{pickGenre}</a> : 'general'}
+            You are viewing: {pickGenre ? <a href="#">{pickGenre}</a> : 'general'}
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>
