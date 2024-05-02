@@ -5,16 +5,21 @@
     flex-direction: row;
     border: 2px solid transparent; 
     margin: 0.5rem;
-    overflow: scroll;
+    flex-wrap: wrap;
 }
 
-#genres p {
-    margin: 1rem;
+#genres h1 {
+    margin-bottom: 1rem;
+    margin-top:0.5rem;
+    margin-left:1rem;
+    margin-right: 1rem;
     border: 2px solid transparent; 
     padding: 0.3rem; 
+    font-size: 18px;
+    color: #393838;
 }
 
-#genres p:hover {
+#genres h1:hover {
     cursor: pointer;
     border-color: #0d6efd; 
     border-radius: 10px; 

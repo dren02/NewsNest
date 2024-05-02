@@ -6,23 +6,15 @@ import './Sidebar.css';
 
 
 function Sidebar({pickGenre}) {
-    // function handleGenre(event) {
-    //     event.preventDefault();
-    //     onGenre();
-    //     console.log("Link clicked!");
-    // }
-
     return (
         <div id="genres">
-            <p onClick={() => pickGenre('general')}>General</p><br/>
-            <p onClick={() => pickGenre('business')}>Business</p><br/>
-            <p onClick={() => pickGenre('entertainment')}>Entertainment</p><br/>
-            <p onClick={() => pickGenre('health')}>Health</p><br/>
-            <p onClick={() => pickGenre('science')}>Science</p><br/>
-            <p onClick={() => pickGenre('business')}>Sports</p><br/>
-            <p onClick={() => pickGenre('technology')}>Technology</p>
-            <p onClick={() => pickGenre('technology')}>Bookmark</p>
-
+            <h1 onClick={() => pickGenre('general')}>General</h1><br/>
+            <h1 onClick={() => pickGenre('business')}>Business</h1><br/>
+            <h1 onClick={() => pickGenre('entertainment')}>Entertainment</h1><br/>
+            <h1 onClick={() => pickGenre('health')}>Health</h1><br/>
+            <h1 onClick={() => pickGenre('science')}>Science</h1><br/>
+            <h1 onClick={() => pickGenre('business')}>Sports</h1><br/>
+            <h1 onClick={() => pickGenre('technology')}>Technology</h1>
         </div>
     )
 }

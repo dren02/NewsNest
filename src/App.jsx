@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
 import Topbar from './Topbar';
 import Welcome from './Welcome';
 import Sidebar from './Sidebar';
@@ -13,14 +12,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import axios from 'axios';
 
-const apiKey = 'b5227b6eb510482daaec078114815ced';
-const apiUrl =  'https://newsapi.org/v2/top-headlines?country=us&';
-// 'https://newsapi.org/v2/top-headlines?country=us&category=${pickGenre}&apiKey=b5227b6eb510482daaec078114815ced';
+const apiKey = 'e8603f8d45f24e6baa70f1f58ee63791';
+const apiUrl = 'https://newsapi.org/v2/top-headlines?country=us&';
 
 function App() {
   const [genre, setGenre] = useState(null)
   const [news, setNews] = useState([]);
- 
+
   async function fetchNews() {
     let url = apiUrl;
     let check = false;
@@ -31,21 +29,19 @@ function App() {
     console.log("genre is: " + genre);
     url = url + 'apiKey=' + apiKey;
     try {
-      if (check==false) {
-        url = 'https://newsapi.org/v2/top-headlines?language=en&apiKey=b5227b6eb510482daaec078114815ced';
-    
+      if (check == false) {
+        url = 'https://newsapi.org/v2/top-headlines?language=en&apiKey=e8603f8d45f24e6baa70f1f58ee63791';
       }
       console.log("url is: " + url);
       const response = await axios.get(url);
       console.log(response.data.articles);
       let relevantNews = checkNews(response.data.articles);
       setNews(relevantNews);
-      // setNews(response.data.articles);
     } catch (error) {
       console.error('Error fetching news:', error);
     }
   }
-  
+
   useEffect(() => {
     fetchNews();
   }, [genre]); // Trigger fetchNews whenever category changes
@@ -72,45 +68,43 @@ function App() {
       });
     }
     setNews(sortedNews);
-
   }
 
   return (
     <div>
       <header>
-        <Topbar pickGenre={genre}/>
+        <Topbar pickGenre={genre} />
         <Sidebar pickGenre={pickGenre} />
       </header>
-      <Welcome/>
+      <Welcome />
       <section id="main-content">
-      <Sort onSort={handleSort}/>
-      <Container>
-        <Row>
-          {/* <Col xs={6} md={3}>
-            <Sidebar pickGenre={pickGenre} />
-          </Col> */}
-          <Col>
-            <Row className = "news-row">
-              {news.map((article, index) => (
-                // <div className="same-height">
-                <Col className="news-box" key={index} xs={12} sm={6} md={4}>
-                  <News
-                    title={article.title}
-                    name={article.source.name}
-                    description={article.description}
-                    url={article.url}
-                    time={article.publishedAt}
-                    image={article.urlToImage}
-                  />
-                </Col>
-                // </div>
-              ))}
-            </Row>
-          </Col>
-        </Row>
-      </Container>
+        <Sort onSort={handleSort} />
+        <Container>
+          <Row>
+            <Col>
+              <Row className="news-row">
+                {news.map((article, index) => (
+                  <Col className="news-box" key={index} xs={12} sm={6} md={4}>
+                    <News
+                      title={article.title}
+                      name={article.source.name}
+                      description={article.description}
+                      url={article.url}
+                      time={article.publishedAt}
+                      image={article.urlToImage}
+                    />
+                  </Col>
+                ))}
+              </Row>
+            </Col>
+          </Row>
+        </Container>
       </section>
+      <footer>
+        <p>Copyright &copy; 2024</p>
+    </footer>
     </div>
+    
   );
 }
 

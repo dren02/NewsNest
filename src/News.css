@@ -13,3 +13,15 @@
 a {
     text-decoration: none !important;
 }
+
+i {
+    font-weight: 500;
+    color: rgb(115, 115, 115);
+}
+
+.time {
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 1rem;
+    color: rgb(115, 115, 115);
+}

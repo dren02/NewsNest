@@ -9,7 +9,7 @@ function Sort({onSort}) {
       };
   return (
     <div id="sort-button">
-    <DropdownButton title="Dropdown button">
+    <DropdownButton title="Sort">
       <Dropdown.Item onClick={() => handleSort('newest')}>Newest - default</Dropdown.Item>
       <Dropdown.Item onClick={() => handleSort('oldest')}>Oldest</Dropdown.Item>
     </DropdownButton>
