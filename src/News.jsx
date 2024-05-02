@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './News.css';
 
@@ -36,12 +35,12 @@ function News({ title, name, description, url, time, image }) {
                 {image ?
                     (<Card.Img variant="top"
                         src={image}
-                        style={{ height: '200px', objectFit: 'cover' }}
+                        style={{ height: '250px', objectFit: 'cover' }}
                         className="news-image" />
                     ) : (
                         <Card.Img variant="top"
                             src="https://www.goabadminton.com/sites/default/files/default_images/default-news.jpg"
-                            style={{ height: '200px', objectFit: 'cover' }}
+                            style={{ height: '250px', objectFit: 'cover' }}
                             className="default-image" />
                     )}
                 <Card.Body className="card-body" >
