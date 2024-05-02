@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Topbar from './Topbar';
 import Welcome from './Welcome';
@@ -26,7 +25,6 @@ function App() {
       url += `category=${genre}&`;
       check = true;
     }
-    console.log("genre is: " + genre);
     url = url + 'apiKey=' + apiKey;
     try {
       if (check == false) {
@@ -59,7 +57,7 @@ function App() {
     let sortedNews = [...news];
     if (sort === 'oldest') {
       sortedNews.sort((a, b) => {
-        // To sort by date in ascending order (oldest first)
+        // sort by date in ascending order (oldest first)
         return new Date(a.publishedAt) - new Date(b.publishedAt);
       });
     } else {

@@ -6,7 +6,7 @@ function Topbar({pickGenre}) {
   return (
     <Navbar className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">News Site</Navbar.Brand>
+        <Navbar.Brand href="#home">NewsNest</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>

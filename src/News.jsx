@@ -44,13 +44,13 @@ function News({ title, name, description, url, time, image }) {
                             style={{ height: '200px', objectFit: 'cover' }}
                             className="default-image" />
                     )}
-                <Card.Body >
+                <Card.Body className="card-body" >
                     <Card.Title>{removeDuplicate(title)}</Card.Title>
                     <p><i>{name}</i></p>
                     <Card.Text>
                         {checkLength(description, 250)}
-                        <p className="time">{formatDate(time)}</p>
                     </Card.Text>
+                    <p className="time">{formatDate(time)}</p>
                 </Card.Body>
             </Card>
         </a>

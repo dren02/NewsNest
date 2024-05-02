@@ -10,6 +10,11 @@
     filter: grayscale(10%) ;
 }
 
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
 a {
     text-decoration: none !important;
 }
@@ -22,6 +27,6 @@ i {
 .time {
     font-weight: 500;
     font-size: 14px;
-    margin-top: 1rem;
     color: rgb(115, 115, 115);
+    margin-top: auto;
 }
