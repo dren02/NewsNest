@@ -1,0 +1,32 @@
+.card {
+    width: 100%;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+
+.card:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5) ;
+    filter: grayscale(10%) ;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+i {
+    font-weight: 500;
+    color: rgb(115, 115, 115);
+}
+
+.time {
+    font-weight: 500;
+    font-size: 14px;
+    color: rgb(115, 115, 115);
+    margin-top: auto;
+}
