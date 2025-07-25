@@ -1,6 +1,8 @@
 # NewsNest
 NewsNest is a news site that shows popular stories from around the world using React & News API
 
+![Demo](media/demo.gif)
+
 ## Features
 - Fetches real-time news from the News API
 - Displays trending stories from various categories, such as business, entertainment, health, science, business, and technology
